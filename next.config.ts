@@ -1,29 +1,8 @@
-
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  typescript: { ignoreBuildErrors: true },
+  // The project has no ESLint setup; TypeScript errors still fail the build.
   eslint: { ignoreDuringBuilds: true },
-  serverExternalPackages: ['gray-matter'],
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '*.supabase.co',
-        pathname: '/storage/v1/object/public/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        pathname: '/**'
-      }
-    ]
-  }
 }
 
 export default nextConfig

@@ -1,36 +1,41 @@
 # GeoWorldLook web
 
-Source of [geoworldlook.vercel.app](https://geoworldlook.vercel.app), a portfolio site for Earth-observation analyses:
-an interactive map, case studies and a technical blog.
+Source of [geoworldlook.vercel.app](https://geoworldlook.vercel.app), the portfolio site of Dawid Sajewski:
+Earth-observation projects, notebook-based articles and contact.
 
-**Stack:** Next.js 15 (App Router) · React 19 · TypeScript · MapLibre GL · Supabase (PostGIS) · Tailwind CSS ·
-a Python ETL job on GitHub Actions (Copernicus Data Space → Supabase).
+**Stack:** Next.js 15 (App Router, fully static) · React 19 · TypeScript · Tailwind CSS · MapLibre GL · Formspree.
 
-## Structure
+## Content-first structure
+
+All texts live in [`content/`](content/) and are validated at build time, so adding a post or a project never
+requires touching the code. A step-by-step guide (in Polish) is in [`content/README.md`](content/README.md).
 
 ```text
+content/
+├── site.yaml            # identity, contact, navigation, home page sections
+├── about.yaml           # about page
+├── projects/*.yaml      # one file per project → /analyses and /analyses/<slug>
+└── blog/*.ipynb         # one Jupyter notebook per article → /blog/<slug>
 src/
-├── app/(marketing)/      # public routes: home, about, analyses, blog, contact
-├── features/map/         # MapLibre map viewer
-├── features/contact/     # contact form (server action)
-├── lib/                  # Supabase client, notebook/blog content helpers
-└── content/notebooks/    # analysis write-ups rendered on the site
-scripts/backfill_copernicus.py      # Sentinel-2 statistics from Copernicus Data Space into Supabase
-.github/workflows/copernicus-sync.yml  # scheduled ETL run
+├── app/(marketing)/     # routes: home, analyses, blog, about, contact
+├── lib/content/         # loaders: YAML + zod validation, notebook parser
+├── features/            # blog (notebook rendering), contact form, map
+└── components/          # navbar, footer, UI primitives
 ```
+
+### Blog posts from notebooks
+
+- The first markdown cell holds YAML metadata (`title`, `date`, `summary`, `tags`, optional `project`, `draft`).
+- Saved outputs are rendered as they are: figures (PNG, JPEG, SVG), HTML tables and text.
+- Code cells accept Quarto-style options: `#| echo: false`, `#| output: false`, `#| include: false`.
+- Drafts are visible in `npm run dev` only.
 
 ## Run locally
 
 ```bash
 npm install
 npm run dev        # http://localhost:9002
+npm run build      # production build, also type-checks and validates content
 ```
 
-Environment variables (`.env.local`): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-The ETL workflow reads `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `COPERNICUS_CLIENT_ID` and
-`COPERNICUS_CLIENT_SECRET` from repository secrets.
-
-## Related projects
-
-The main analysis projects behind GeoWorldLook are [AgriScreen](https://github.com/geoworldlook/agriscreen)
-(vineyard drought monitoring) and [EGMS Check](https://github.com/geoworldlook/egms-check) (InSAR validation).
+Pushing to `main` deploys to Vercel; other branches get preview deployments.

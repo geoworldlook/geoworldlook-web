@@ -1,12 +1,9 @@
 import { MetadataRoute } from 'next'
- 
-export default function robots(): MetadataRoute.Sitemap {
+import { getSite } from '@/lib/content/site'
+
+export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
-    },
-    sitemap: 'https://geoworldlook.com/sitemap.xml',
-  } as any
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: `${getSite().url}/sitemap.xml`,
+  }
 }

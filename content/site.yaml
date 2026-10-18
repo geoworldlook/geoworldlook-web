@@ -1,0 +1,73 @@
+# Site settings: identity, contact, navigation and home page texts.
+# Edit freely; the build fails with a clear message if a required field is missing.
+
+name: GeoWorldLook
+url: https://geoworldlook.vercel.app
+title: GeoWorldLook | Earth observation by Dawid Sajewski
+description: >-
+  Earth-observation and geospatial data science projects built on open Copernicus data
+  and validated against independent ground measurements.
+author: Dawid Sajewski
+
+contact:
+  email: geo.world.look@gmail.com
+  location: Poland
+  # Formspree form ID (the part after formspree.io/f/). Empty = the form asks visitors to email you instead.
+  formspreeId: ""
+  intro: >-
+    Want to talk about one of my projects, satellite data validation or a role
+    in Earth observation? Send me a message and I will get back to you.
+  topics:
+    - Earth-observation and geospatial data roles
+    - Collaboration on open-data projects
+    - Questions about AgriScreen or EGMS Check
+    - Validation of satellite products
+
+links:
+  github: https://github.com/geoworldlook
+  linkedin: ""   # empty = hidden
+
+nav:
+  - { label: Analyses, href: /analyses }
+  - { label: Blog, href: /blog }
+  - { label: About, href: /about }
+  - { label: Contact, href: /contact }
+
+footer:
+  tagline: >-
+    Satellite intelligence for real decisions.
+    Earth-observation pipelines from open data, validated against the ground.
+
+home:
+  hero:
+    badge: Earth observation · open data
+    title: Satellite Intelligence
+    titleAccent: for Real Decisions
+    text: >-
+      I build Earth-observation pipelines from open Copernicus data and check every
+      result against independent ground measurements.
+    primary: { label: Explore Analyses, href: /analyses }
+    secondary: { label: Get in Touch, href: /contact }
+
+  # Up to three short facts shown under the hero.
+  stats:
+    - { value: "2,976 days", label: soil moisture checked against an in-situ station }
+    - { value: "1,216", label: levelling benchmarks compared with EGMS InSAR }
+    - { value: "35", label: GNSS stations in the Groningen validation }
+
+  # Map section. Off until a project provides map data.
+  # To show it: set enabled to true and put a GeoJSON file in public/data/ (points with a "title" property).
+  map:
+    enabled: false
+    eyebrow: Live Coverage
+    title: Real-Time Spatial Data
+    text: Daily ingested geospatial data from automated satellite processing pipelines, visualized on interactive maps.
+    geojson: /data/map.geojson
+    note: ""
+
+  # Project cards on the home page come from content/projects (featured: true).
+
+  cta:
+    title: Interested in my work?
+    text: I am happy to talk about Earth observation, validation of satellite products and geospatial data science.
+    button: { label: Get in Touch, href: /contact }

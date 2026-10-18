@@ -1,7 +1,7 @@
-
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { getSite } from '@/lib/content/site';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,9 +9,20 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const site = getSite();
+
 export const metadata: Metadata = {
-  title: 'GeoWorldLook - Advanced Geospatial Intelligence',
-  description: 'High-fidelity spatial data analysis and visualization platform powered by Sentinel satellite data.',
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s | ${site.name}` },
+  description: site.description,
+  authors: [{ name: site.author }],
+  openGraph: {
+    type: 'website',
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    url: site.url,
+  },
 };
 
 export default function RootLayout({
@@ -21,9 +32,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" />
-      </head>
       <body className={`${inter.className} bg-[#0a0a0a] text-white antialiased`}>
         {children}
       </body>

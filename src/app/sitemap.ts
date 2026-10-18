@@ -1,37 +1,14 @@
 import { MetadataRoute } from 'next'
- 
+import { getSite } from '@/lib/content/site'
+import { getProjects } from '@/lib/content/projects'
+import { getPosts } from '@/lib/content/blog'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://geoworldlook.com'
+  const { url, nav } = getSite()
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/analyses`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
+    { url, changeFrequency: 'weekly', priority: 1 },
+    ...nav.map((link) => ({ url: `${url}${link.href}`, changeFrequency: 'weekly' as const, priority: 0.7 })),
+    ...getProjects().map((project) => ({ url: `${url}/analyses/${project.slug}`, lastModified: project.date, priority: 0.8 })),
+    ...getPosts().map((post) => ({ url: `${url}/blog/${post.slug}`, lastModified: post.date, priority: 0.6 })),
   ]
 }

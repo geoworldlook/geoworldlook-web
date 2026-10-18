@@ -4,15 +4,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Card, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight, Clock, BookOpen, Tag } from 'lucide-react';
-import { getAllNotebooks } from '@/lib/notebooks';
+import { getPosts } from '@/lib/content/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog | GeoWorldLook',
+  title: 'Blog',
   description: 'Technical articles on remote sensing, satellite data pipelines, and high-performance spatial database optimization.'
 };
 
-export default async function BlogPage() {
-  const notebooks = await getAllNotebooks();
+export default function BlogPage() {
+  const notebooks = getPosts();
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-24 space-y-16">
@@ -31,7 +31,7 @@ export default async function BlogPage() {
       <div className="space-y-8 max-w-5xl mx-auto">
         {notebooks.length === 0 && (
           <div className="text-center py-20 border border-white/5 rounded-2xl bg-white/[0.02]">
-            <p className="text-gray-500">No notebook articles found in src/content/notebooks/</p>
+            <p className="text-gray-500">The first articles are on their way.</p>
           </div>
         )}
         

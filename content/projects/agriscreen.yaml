@@ -1,0 +1,28 @@
+# One file = one project (module). The file name is the URL: /analyses/agriscreen
+
+title: AgriScreen
+tagline: Vineyard drought monitoring from open Copernicus data
+summary: >-
+  A 10-day drought status for one vineyard in Gers (France), in the style of the European Drought
+  Observatory's Combined Drought Indicator. It combines rainfall indices, ERA5-Land soil moisture and
+  Sentinel-2 NDVI super-resolved to 2.5 m, and every layer is validated against ground measurements.
+category: agriculture
+icon: sprout          # one of: sprout, satellite, layers, trees, thermometer, mountain, waves, radar, map
+region: Gers, FR
+date: 2026-10-09      # latest milestone, used for sorting
+status: active        # active | completed | archived
+featured: true        # shown on the home page
+order: 1
+image: ""             # optional cover, e.g. /projects/agriscreen.png (file in public/projects)
+
+highlights:
+  - "Root-zone soil moisture vs an in-situ ISMN station: R = 0.58 over 2,976 days."
+  - "30-day rainfall and SPI-3 vs a Météo-France rain gauge: R = 0.90 / 0.87."
+  - "Heat days: 68% detected with 9% false alarms on held-out years."
+  - "Reported as not confirmed: the combined soil and vegetation alert, because vegetation lags soil moisture."
+
+tags: [Sentinel-2, ERA5-Land, SEN2SR, Google Earth Engine, Validation]
+
+links:
+  github: https://github.com/geoworldlook/agriscreen
+  colab: https://colab.research.google.com/github/geoworldlook/agriscreen/blob/main/notebooks/AgriWatch_Monitor.ipynb

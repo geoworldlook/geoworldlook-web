@@ -1,0 +1,42 @@
+# About page.
+
+eyebrow: About
+title: Earth Observation & Geospatial Data Science
+intro: >-
+  I turn open satellite data into validated information: drought status for a vineyard,
+  ground motion checked against GNSS and levelling, and the pipelines that produce them.
+  Based in Poland.
+
+background:
+  - >-
+    My work starts from a question someone actually needs answered, for example
+    "is this field entering drought?" or "can this InSAR product be trusted for subsidence monitoring?".
+    Then I build the pipeline and test it against independent ground measurements.
+  - >-
+    I fix acceptance criteria before computing results, I report every number with its error,
+    and I publish negative results too. A layer that has not been validated is labelled as such.
+  - >-
+    Most of my tools are open: Copernicus data (Sentinel-1/2, ERA5-Land, EGMS), Python,
+    Google Earth Engine and reproducible notebooks.
+
+# Experience timeline. Newest first. The section is hidden while the list is empty.
+# Example:
+#   - { years: "2024 – present", role: "Remote Sensing Specialist", context: "Forest monitoring with Sentinel-2" }
+experience: []
+
+skills:
+  - label: Satellite Data
+    tags: [Sentinel-1, Sentinel-2, ERA5-Land, EGMS, Landsat 8, Airborne LiDAR, Google Earth Engine]
+  - label: Analysis & Validation
+    tags: [Time-series anomalies, InSAR validation, In-situ match-ups, Bootstrap CIs, Brier score, Pre-registered criteria]
+  - label: Engineering
+    tags: [Python, pandas, rasterio, GeoPandas, PostGIS, QGIS, ArcGIS Pro]
+  - label: Machine Learning
+    tags: [scikit-learn, TensorFlow, PyTorch, Super-resolution (SEN2SR)]
+  - label: Learning Now
+    tags: [STAC, xarray, Docker, GitHub Actions, U-Net]
+
+availability:
+  title: Open to conversations
+  text: About Earth observation, validation of satellite products and geospatial data science.
+  button: { label: Get in Touch, href: /contact }
