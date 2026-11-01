@@ -39,3 +39,8 @@ npm run build      # production build, also type-checks and validates content
 ```
 
 Pushing to `main` deploys to Vercel; other branches get preview deployments.
+
+## How it is built
+
+I build this site with help from Claude, an AI assistant made by Anthropic (code and texts). I choose the content
+and check every page before it goes live.
