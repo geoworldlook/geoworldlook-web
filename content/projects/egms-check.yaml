@@ -1,25 +1,25 @@
 title: EGMS Check
 tagline: Does satellite InSAR agree with the ground?
 summary: >-
-  Validation of the European Ground Motion Service (Sentinel-1 InSAR) against two independent kinds of
-  ground truth: permanent GNSS stations in the Groningen gas field and state precise levelling in North
-  Rhine-Westphalia. Acceptance criteria were fixed before any comparison was computed.
+  Validation of the European Ground Motion Service (Copernicus, Sentinel-1 InSAR) against two independent kinds
+  of ground measurement: permanent GNSS stations in the Groningen gas field and state precise levelling in North
+  Rhine-Westphalia. The rules were fixed before any comparison was computed, and failed rules are reported too.
 category: insar
 icon: satellite
 region: Groningen, NL · NRW, DE
-date: 2026-10-13
+date: 2026-11-02
 status: active
 featured: true
 order: 2
 image: /projects/egms-check.png
 
 highlights:
-  - "Groningen: 91% of station × track pairs agree within 1.5 mm/yr (slope 0.96)."
-  - "North Rhine-Westphalia: slope 0.96 on 1,216 levelling benchmarks."
-  - "100% sign agreement in subsidence bowls."
-  - "A constant ≈ −2 mm/yr datum offset is reported as a failed pre-registered criterion."
+  - "North Rhine-Westphalia: on 1,216 levelling benchmarks EGMS shows the same height change as levelling (slope 0.96, up to −140 mm in 3 years), with the same direction of motion at all 54 benchmarks in subsidence bowls."
+  - "Groningen: GNSS confirms the EGMS subsidence rate within 1.5 mm/yr for 91% of station × track pairs (EGMS release 2019–2023) and 99% (release 2020–2024)."
+  - "Reported as failed: a constant ≈ −2 mm/yr offset to the levelling datum breaks 3 of 4 pre-registered rules, and the stable-station check fails in Groningen."
+  - "One command runs the whole pipeline on a normal computer; offline tests of all modules run in CI on every change."
 
-tags: [Sentinel-1, InSAR, EGMS, GNSS, Levelling, Validation]
+tags: [Sentinel-1, InSAR, EGMS, GNSS, Levelling, Validation, Pre-registration]
 
 links:
   github: https://github.com/geoworldlook/egms-check
