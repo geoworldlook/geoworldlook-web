@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { getSite } from '@/lib/content/site'
 import { getProjects } from '@/lib/content/projects'
 import MapViewerWrapper from '@/features/map/MapViewerWrapper'
+import LiveReadings from '@/features/map/LiveReadings'
 import ProjectIcon from '@/components/shared/ProjectIcon'
 
 export default function LandingPage() {
@@ -83,9 +84,35 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="w-full h-[500px] rounded-xl border border-white/[0.06] overflow-hidden">
-              <MapViewerWrapper geojsonUrl={map.geojson} />
-            </div>
+            {map.sources.length > 0 ? (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {map.sources.map((source) => (
+                  <div key={source.url} className="bg-[#111] border border-white/[0.06] rounded-xl p-5 flex flex-col gap-4">
+                    <div>
+                      <h3 className="text-white font-semibold text-lg flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: source.color }} />
+                        {source.label}
+                      </h3>
+                      {source.text && <p className="text-gray-400 text-sm mt-1">{source.text}</p>}
+                    </div>
+                    <div className="w-full h-[360px] rounded-xl border border-white/[0.06] overflow-hidden">
+                      <MapViewerWrapper geojsonUrl={source.url} color={source.color} fit />
+                    </div>
+                    <LiveReadings url={source.url} sort={source.sort} />
+                    {source.href && (
+                      <Link href={source.href} className="inline-flex items-center gap-2 text-emerald-400 text-sm font-medium hover:gap-3 transition-all">
+                        Open the project and its live panel
+                        <ArrowRight size={16} />
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="w-full h-[500px] rounded-xl border border-white/[0.06] overflow-hidden">
+                <MapViewerWrapper geojsonUrl={map.geojson} />
+              </div>
+            )}
 
             {map.note && (
               <p className="text-gray-600 text-xs mt-3 text-center italic">

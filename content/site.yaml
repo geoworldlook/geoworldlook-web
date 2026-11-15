@@ -20,7 +20,7 @@ contact:
   topics:
     - Earth-observation and geospatial data roles
     - Collaboration on open-data projects
-    - Questions about AgriScreen or EGMS Check
+    - Questions about AgriScreen, EGMS Check, Air Check or Water Check
     - Validation of satellite products
 
 links:
@@ -55,15 +55,38 @@ home:
     - { value: "1,216", label: levelling benchmarks compared with EGMS InSAR }
     - { value: "35", label: GNSS stations in the Groningen validation }
 
-  # Map section. Off until a project provides map data.
-  # To show it: set enabled to true and put a GeoJSON file in public/data/ (points with a "title" property).
+  # Live monitoring section: one map card per source. Each source is a GeoJSON file that a project publishes
+  # after every automatic run; the page reads it in the visitor's browser, so maps and readings are always current.
+  # (Without sources, the section shows one map from a GeoJSON file in public/data/, set in "geojson".)
   map:
-    enabled: false
-    eyebrow: Live Coverage
-    title: Real-Time Spatial Data
-    text: Daily ingested geospatial data from automated satellite processing pipelines, visualized on interactive maps.
-    geojson: /data/map.geojson
-    note: ""
+    enabled: true
+    eyebrow: Live monitoring
+    title: Checked against the ground, automatically
+    text: >-
+      Two systems compare Copernicus products with ground stations and publish the result without manual work.
+      The maps and the readings below come straight from their latest runs.
+    geojson: ""
+    sources:
+      - label: Air Check · smog forecast vs stations
+        text: >-
+          28 cities, every day. Each point: the PM2.5 measured at the station yesterday, the forecast for tomorrow
+          and how the forecast has done against the rule "tomorrow = today".
+        url: https://geoworldlook.github.io/air-check/showcase/map_points.geojson
+        color: "#38bdf8"
+        href: /analyses/air-check
+        sort: reading
+      - label: Water Check · radar water area vs gauges
+        text: >-
+          11 lakes and reservoirs, every week. Each point: the latest gauge level, the latest water area seen by
+          Sentinel-1 radar and whether the two agree.
+        url: https://geoworldlook.github.io/water-check/showcase/map_points.geojson
+        color: "#10b981"
+        href: /analyses/water-check
+        sort: title
+    note: >-
+      Data: European Environment Agency, Copernicus Atmosphere Monitoring Service, Copernicus Sentinel-1 and national
+      gauge networks (IMGW-PIB, SYKE, SMHI, Hub'Eau, ARPA Lombardia). Dot colour in the lists: green = confirmed,
+      grey = no clear difference, amber = partly, red = not confirmed.
 
   # Project cards on the home page come from content/projects (featured: true).
 

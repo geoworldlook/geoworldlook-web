@@ -1,0 +1,34 @@
+# One file = one project (module). The file name is the URL: /analyses/air-check
+
+title: Air Check
+tagline: Is the air-quality forecast right in my city?
+summary: >-
+  A daily automatic check of the Copernicus (CAMS) fine-dust forecast against official ground stations in
+  28 European cities. Every morning the system saves the new forecast, compares yesterday's forecast with
+  what the stations measured, and updates the panel. The yardstick is the simplest forecast there is:
+  "tomorrow will be like today". A forecast is useful in a city only if it beats this rule.
+category: air quality
+icon: wind            # one of: sprout, satellite, layers, trees, thermometer, mountain, waves, radar, map, wind
+region: PL · IT · FR · CH · NO · SE · FI
+date: 2026-11-15      # latest milestone, used for sorting
+status: active        # active | completed | archived
+featured: true        # shown on the home page
+order: 3
+
+highlights:
+  - "28 cities in 7 countries, daily mean PM2.5, checked every day without manual work (GitHub Actions); a failed run opens an issue and the panel is not updated."
+  - "Last 365 days (reconstructed from the forecast archive): the forecast clearly beats “tomorrow = today” in 9 cities, clearly loses in 7, no clear difference in 12."
+  - "Reported as negative: large winter over-forecast in Milano (+19 µg/m³), Katowice (+12), Warszawa (+9) and Torino (+7); in these cities the simple rule wins."
+  - "Live confirmation test with rules fixed before the first test day: 2026-11-16 to 2027-02-13."
+
+tags: [CAMS, Copernicus, PM2.5, Forecast verification, Validation, Pre-registration, GitHub Actions]
+
+links:
+  github: https://github.com/geoworldlook/air-check
+  demo: https://geoworldlook.github.io/air-check/showcase/aircheck_panel.html
+
+panel:
+  url: https://geoworldlook.github.io/air-check/showcase/aircheck_panel.html
+  height: 1500
+  title: Live panel
+  note: Updated automatically every day. Click a city on the map or in the table.

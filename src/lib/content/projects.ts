@@ -18,6 +18,10 @@ const projectSchema = z.object({
   links: z
     .object({ github: z.string().default(''), colab: z.string().default(''), demo: z.string().default('') })
     .default({}),
+  // Optional live panel embedded on the project page (a self-updating page published by the project).
+  panel: z
+    .object({ url: z.string(), height: z.number().default(900), title: z.string().default('Live panel'), note: z.string().default('') })
+    .optional(),
 });
 
 export type Project = z.infer<typeof projectSchema> & { slug: string };

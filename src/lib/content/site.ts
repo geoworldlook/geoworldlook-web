@@ -37,7 +37,18 @@ const siteSchema = z.object({
       eyebrow: z.string(),
       title: z.string(),
       text: z.string(),
-      geojson: z.string(),
+      geojson: z.string().default(''),
+      // Live sources: one map card per entry, read in the browser straight from the project's published GeoJSON.
+      sources: z
+        .array(z.object({
+          label: z.string(),
+          text: z.string().default(''),
+          url: z.string(),
+          color: z.string().default('#10b981'),
+          href: z.string().default(''),
+          sort: z.enum(['reading', 'title']).default('title'),
+        }))
+        .default([]),
       note: z.string().default(''),
     }),
     cta: z.object({ title: z.string(), text: z.string(), button: linkSchema }),

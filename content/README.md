@@ -53,13 +53,27 @@ Skopiuj `projects/egms-check.yaml` pod nową nazwą i zmień pola. Najważniejsz
 - `image` to okładka z `public/projects/`; bez obrazu karta pokazuje ikonę z pola `icon`;
 - `status`: `active`, `completed` albo `archived`;
 - wpisy z `project: <nazwa-pliku>` pojawiają się na stronie projektu automatycznie.
+- `panel` (opcjonalnie) osadza na stronie projektu panel na żywo, czyli stronę, którą projekt sam aktualizuje:
+  `url` (adres panelu, np. z GitHub Pages), `height` (wysokość ramki w pikselach), `title`, `note`.
 
-## Mapa na stronie głównej
+## Monitoring na żywo na stronie głównej
 
-Sekcja jest wyłączona (`home.map.enabled: false` w `site.yaml`). Żeby ją włączyć dla nowego projektu:
+Sekcja jest włączona (`home.map.enabled: true` w `site.yaml`). Każdy wpis na liście `home.map.sources` to jedna karta
+z mapą i listą ostatnich odczytów:
 
-1. Zapisz punkty jako GeoJSON w `public/data/map.geojson`; każdy punkt może mieć właściwości `title` i `description` (dymek po kliknięciu).
-2. W `site.yaml` ustaw `enabled: true` i popraw teksty sekcji (`eyebrow`, `title`, `text`, `note`).
+| Pole | Znaczenie |
+|---|---|
+| `label`, `text` | tytuł i opis karty |
+| `url` | plik GeoJSON, który projekt publikuje po każdym przebiegu (np. `docs/showcase/map_points.geojson` na GitHub Pages) |
+| `color` | kolor punktów na mapie |
+| `href` | odnośnik do strony projektu |
+| `sort` | kolejność listy odczytów: `reading` (od największego odczytu) albo `title` (alfabetycznie) |
+
+Strona czyta te pliki w przeglądarce przy każdym wejściu, więc mapy i odczyty są zawsze aktualne i nie trzeba
+przebudowywać strony. Punkt w pliku GeoJSON może mieć właściwości: `title`, `description` (dymek), `status`
+(kolor kropki na liście), `reading`, `reading_unit`, `reading_date`, `updated`, `url` (odnośnik do panelu).
+
+Bez listy `sources` sekcja pokazuje jedną mapę z pliku wskazanego w `home.map.geojson` (np. `public/data/map.geojson`).
 
 ## Formularz kontaktowy
 

@@ -119,6 +119,26 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         )}
 
+        {project.panel && (
+          <section>
+            <h2 className="text-white font-semibold text-xl mb-2">{project.panel.title}</h2>
+            {project.panel.note && <p className="text-gray-500 text-sm mb-4">{project.panel.note}</p>}
+            <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-white">
+              <iframe
+                src={project.panel.url}
+                title={`${project.title}: ${project.panel.title}`}
+                loading="lazy"
+                className="w-full block"
+                style={{ height: project.panel.height, border: 0 }}
+              />
+            </div>
+            <a href={project.panel.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-emerald-400 text-sm font-medium mt-3 hover:gap-3 transition-all">
+              Open the panel in a new tab
+              <ArrowRight size={16} />
+            </a>
+          </section>
+        )}
+
         {posts.length > 0 && (
           <section>
             <h2 className="text-white font-semibold text-xl mb-4">Articles about this project</h2>

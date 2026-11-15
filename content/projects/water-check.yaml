@@ -1,0 +1,34 @@
+# One file = one project (module). The file name is the URL: /analyses/water-check
+
+title: Water Check
+tagline: Does radar see the water level change in a lake or reservoir?
+summary: >-
+  A daily automatic check of the water area seen by the Sentinel-1 radar satellites against water-level gauges
+  at 10 lakes and reservoirs in Poland, Finland, Sweden, France and Italy. Radar works through clouds, but it sees
+  the water surface, not the level. The project shows where the radar area is enough to follow the level, and
+  where it is not. The rules of the test were written down before the test years were computed.
+category: water
+icon: waves           # one of: sprout, satellite, layers, trees, thermometer, mountain, waves, radar, map, wind
+region: PL · FI · SE · FR · IT
+date: 2026-11-15      # latest milestone, used for sorting
+status: active        # active | completed | archived
+featured: false       # the home page shows it in the live monitoring section
+order: 4
+
+highlights:
+  - "Confirmed on 2 of 7 water bodies where a signal was expected: Lokka and Porttipahta in Lapland (rank correlation 0.92 and 0.97; level estimated from radar within 20 and 15 cm, for a range of about 1 m)."
+  - "Reported as negative: four water bodies not confirmed and one only partly (Siemianówka: the radar follows the level, but the estimated level is wrong by about 1 m)."
+  - "All 3 control lakes are stable: the method shows no change where there is none."
+  - "5,691 Sentinel-1 scenes since 2022, read as small windows from a cloud catalogue (STAC); daily run without manual work; a failed run opens an issue."
+
+tags: [Sentinel-1, SAR, STAC, Water level, Validation, Pre-registration, GitHub Actions]
+
+links:
+  github: https://github.com/geoworldlook/water-check
+  demo: https://geoworldlook.github.io/water-check/showcase/watercheck_panel.html
+
+panel:
+  url: https://geoworldlook.github.io/water-check/showcase/watercheck_panel.html
+  height: 1650
+  title: Live panel
+  note: Updated automatically every day. Click a water body on the map or in the table.

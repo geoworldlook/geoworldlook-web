@@ -1,4 +1,4 @@
-import { Layers, Map, Mountain, Radar, Satellite, Sprout, Thermometer, Trees, Waves, type LucideProps } from 'lucide-react';
+import { Layers, Map, Mountain, Radar, Satellite, Sprout, Thermometer, Trees, Waves, Wind, type LucideProps } from 'lucide-react';
 
 /** Icons available to projects via the `icon:` field in content/projects/*.yaml. */
 const ICONS = {
@@ -11,6 +11,7 @@ const ICONS = {
   thermometer: Thermometer,
   trees: Trees,
   waves: Waves,
+  wind: Wind,
 };
 
 export default function ProjectIcon({ name, ...props }: { name: string } & LucideProps) {

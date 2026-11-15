@@ -14,6 +14,14 @@ const MapViewer = dynamic(() => import('./MapViewer'), {
   ),
 })
 
-export default function MapViewerWrapper({ geojsonUrl }: { geojsonUrl: string }) {
-  return <MapViewer geojsonUrl={geojsonUrl} />
+export default function MapViewerWrapper({
+  geojsonUrl,
+  color,
+  fit,
+}: {
+  geojsonUrl: string
+  color?: string
+  fit?: boolean
+}) {
+  return <MapViewer geojsonUrl={geojsonUrl} color={color} fit={fit} />
 }
