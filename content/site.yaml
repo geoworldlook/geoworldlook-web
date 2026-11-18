@@ -69,15 +69,15 @@ home:
     sources:
       - label: Air Check · smog forecast vs stations
         text: >-
-          28 cities, every day. Each point: the PM2.5 measured at the station yesterday, the forecast for tomorrow
-          and how the forecast has done against the rule "tomorrow = today".
+          27 cities, every day. Each point: the PM2.5 measured at the station yesterday, the forecast for tomorrow
+          (raw and corrected) and how the forecast has done against the rule "tomorrow = today".
         url: https://geoworldlook.github.io/air-check/showcase/map_points.geojson
         color: "#38bdf8"
         href: /analyses/air-check
         sort: reading
       - label: Water Check · radar water area vs gauges
         text: >-
-          11 lakes and reservoirs, every week. Each point: the latest gauge level, the latest water area seen by
+          9 lakes and reservoirs, every day. Each point: the latest gauge level, the latest water area seen by
           Sentinel-1 radar and whether the two agree.
         url: https://geoworldlook.github.io/water-check/showcase/map_points.geojson
         color: "#10b981"
@@ -85,7 +85,7 @@ home:
         sort: title
     note: >-
       Data: European Environment Agency, Copernicus Atmosphere Monitoring Service, Copernicus Sentinel-1 and national
-      gauge networks (IMGW-PIB, SYKE, SMHI, Hub'Eau, ARPA Lombardia). Dot colour in the lists: green = confirmed,
+      gauge networks (IMGW-PIB, SYKE, SMHI, Hub'Eau). Dot colour in the lists: green = confirmed,
       grey = no clear difference, amber = partly, red = not confirmed.
 
   # Project cards on the home page come from content/projects (featured: true).

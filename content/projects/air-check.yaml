@@ -4,24 +4,25 @@ title: Air Check
 tagline: Is the air-quality forecast right in my city?
 summary: >-
   A daily automatic check of the Copernicus (CAMS) fine-dust forecast against official ground stations in
-  28 European cities. Every morning the system saves the new forecast, compares yesterday's forecast with
+  27 European cities. Every morning the system saves the new forecast, compares yesterday's forecast with
   what the stations measured, and updates the panel. The yardstick is the simplest forecast there is:
-  "tomorrow will be like today". A forecast is useful in a city only if it beats this rule.
+  "tomorrow will be like today". A forecast is useful in a city only if it beats this rule. A small correction
+  learned from each station's past errors (model output statistics, MOS) is published next to the raw forecast.
 category: air quality
 icon: wind            # one of: sprout, satellite, layers, trees, thermometer, mountain, waves, radar, map, wind
-region: PL · IT · FR · CH · NO · SE · FI
-date: 2026-11-15      # latest milestone, used for sorting
+region: PL · IT · FR · CH · SE · FI
+date: 2026-11-17      # latest milestone, used for sorting
 status: active        # active | completed | archived
 featured: true        # shown on the home page
 order: 3
 
 highlights:
-  - "28 cities in 7 countries, daily mean PM2.5, checked every day without manual work (GitHub Actions); a failed run opens an issue and the panel is not updated."
-  - "Last 365 days (reconstructed from the forecast archive): the forecast clearly beats “tomorrow = today” in 9 cities, clearly loses in 7, no clear difference in 12."
-  - "Reported as negative: large winter over-forecast in Milano (+19 µg/m³), Katowice (+12), Warszawa (+9) and Torino (+7); in these cities the simple rule wins."
-  - "Live confirmation test with rules fixed before the first test day: 2026-11-16 to 2027-02-13."
+  - "Corrected forecast (MOS, rules fixed before the hold-out year was computed): beats “tomorrow = today” in 27 of 27 cities and the raw forecast in 27 of 27; median error 3.95 µg/m³ against 5.48 for the raw forecast and 5.16 for the rule."
+  - "Largest gains where the raw forecast fails in winter: Katowice 18.8 → 4.8 µg/m³, Milano 17.4 → 6.7, Warszawa 10.2 → 5.5."
+  - "Raw forecast, last 365 days: clearly better than the rule in 9 cities, clearly worse in 7 (large winter over-forecast), no clear difference in 11."
+  - "27 cities in 6 countries, only stations with current data; checked every day without manual work (GitHub Actions). Live tests with rules fixed in advance: raw forecast 2026-11-16 to 2027-02-13, corrected forecast 2026-11-18 to 2027-02-15."
 
-tags: [CAMS, Copernicus, PM2.5, Forecast verification, Validation, Pre-registration, GitHub Actions]
+tags: [CAMS, Copernicus, PM2.5, Forecast verification, MOS, Validation, Pre-registration, GitHub Actions]
 
 links:
   github: https://github.com/geoworldlook/air-check
