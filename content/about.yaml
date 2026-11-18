@@ -51,10 +51,12 @@ skills:
     tags: [Google Earth Engine, QGIS with UMEP, ArcGIS Pro]
   - label: Machine Learning
     tags: [scikit-learn, Random Forest, SVM, Object-based image analysis]
+  - label: Languages
+    tags: [Polish (native), English, French (learning), Italian (learning)]
   - label: Learning Now
     tags: [xarray, Deep learning, U-Net]
 
 availability:
   title: Open to collaboration
   text: Happy to talk about Earth observation, validation of satellite products and geospatial data science.
-  button: { label: Get in Touch, href: /contact }
+  button: { label: Connect on LinkedIn, href: "https://www.linkedin.com/in/dawid-sajewski-12830b21b/" }

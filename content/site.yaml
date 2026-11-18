@@ -15,12 +15,14 @@ contact:
   # Formspree form ID (the part after formspree.io/f/). Empty = the form asks visitors to email you instead.
   formspreeId: ""
   intro: >-
-    Open to collaboration. Want to talk about one of my projects, satellite data
-    validation or Earth observation in general? Send me a message or find me on LinkedIn.
+    GeoWorldLook is where I publish Earth-observation topics and results. Want to talk about
+    one of them, compare methods or work on something together? Connect with me on LinkedIn
+    or send an email. Feel free to write in English, French or Italian.
   topics:
-    - Collaboration on open-data projects
-    - Questions about AgriScreen, EGMS Check, Air Check or Water Check
-    - Validation of satellite products
+    - Methods for validating satellite products against ground data
+    - Questions and feedback on AgriScreen, EGMS Check, Air Check or Water Check
+    - Research collaboration on open-data projects
+    - Conferences, hackathons and Earth-observation meetups
 
 links:
   github: https://github.com/geoworldlook
@@ -39,15 +41,15 @@ footer:
 
 home:
   hero:
-    badge: Earth observation · open data
-    title: Dawid Sajewski
-    titleAccent: Remote Sensing & Earth Observation
+    badge: by Dawid Sajewski · remote sensing
+    title: Earth Observation,
+    titleAccent: Checked Against the Ground
     text: >-
-      I develop remote sensing methods and turn them into working Python pipelines,
-      from raw satellite data to validated maps and alerts. Every result here is checked
-      against independent ground measurements.
+      Topics and results from open satellite data: crops, ground motion, air quality and water.
+      Every result here is checked against independent ground measurements, and negative
+      results are published too.
     primary: { label: Explore Analyses, href: /analyses }
-    secondary: { label: Get in Touch, href: /contact }
+    secondary: { label: About me, href: /about }
 
   # Up to three short facts shown under the hero.
   stats:
@@ -91,6 +93,8 @@ home:
   # Project cards on the home page come from content/projects (featured: true).
 
   cta:
-    title: Interested in my work?
-    text: I am happy to talk about Earth observation, validation of satellite products and geospatial data science.
-    button: { label: Get in Touch, href: /contact }
+    title: Let's connect
+    text: >-
+      I share new results and short write-ups on LinkedIn, in English, French and Italian.
+      Happy to talk about Earth observation, validation of satellite products and geospatial data science.
+    button: { label: Connect on LinkedIn, href: "https://www.linkedin.com/in/dawid-sajewski-12830b21b/" }
