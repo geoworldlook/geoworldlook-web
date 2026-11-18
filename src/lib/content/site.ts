@@ -59,9 +59,13 @@ const aboutSchema = z.object({
   eyebrow: z.string(),
   title: z.string(),
   intro: z.string(),
+  photo: z.string().default(''),
   background: z.array(z.string()),
   experience: z
     .array(z.object({ years: z.string(), role: z.string(), context: z.string().default('') }))
+    .default([]),
+  education: z
+    .array(z.object({ years: z.string(), degree: z.string(), school: z.string().default('') }))
     .default([]),
   skills: z.array(z.object({ label: z.string(), tags: z.array(z.string()) })),
   availability: z.object({ title: z.string(), text: z.string(), button: linkSchema }),

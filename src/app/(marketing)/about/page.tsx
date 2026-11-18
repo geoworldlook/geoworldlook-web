@@ -13,16 +13,28 @@ export default function AboutPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
-      <section className="py-16">
-        <p className="text-emerald-400 text-xs uppercase tracking-widest mb-3">
-          {about.eyebrow}
-        </p>
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-          {about.title}
-        </h1>
-        <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
-          {about.intro}
-        </p>
+      <section className="py-16 flex flex-col-reverse md:flex-row md:items-center gap-8">
+        <div className="flex-1">
+          <p className="text-emerald-400 text-xs uppercase tracking-widest mb-3">
+            {about.eyebrow}
+          </p>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            {about.title}
+          </h1>
+          <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
+            {about.intro}
+          </p>
+        </div>
+        {about.photo && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={about.photo}
+            alt="Portrait of Dawid Sajewski"
+            width={192}
+            height={192}
+            className="w-36 h-36 md:w-48 md:h-48 rounded-full object-cover border border-white/10 shrink-0"
+          />
+        )}
       </section>
 
       <div className="border-t border-white/[0.06] my-2" />
@@ -53,6 +65,24 @@ export default function AboutPage() {
                       <p className="text-emerald-400 text-xs tracking-wider mb-1">{exp.years}</p>
                       <p className="text-white font-medium">{exp.role}</p>
                       <p className="text-gray-500 text-sm">{exp.context}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {about.education.length > 0 && (
+              <div>
+                <h2 className="text-white font-semibold text-xl mb-6">
+                  Education
+                </h2>
+                <div className="space-y-0">
+                  {about.education.map((edu) => (
+                    <div key={`${edu.years}-${edu.degree}`} className="relative pl-6 border-l border-white/[0.08] pb-8 last:pb-0">
+                      <div className="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-emerald-400 -translate-x-1/2" />
+                      <p className="text-emerald-400 text-xs tracking-wider mb-1">{edu.years}</p>
+                      <p className="text-white font-medium">{edu.degree}</p>
+                      <p className="text-gray-500 text-sm">{edu.school}</p>
                     </div>
                   ))}
                 </div>
