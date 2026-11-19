@@ -21,6 +21,8 @@ const metaSchema = z.object({
   tags: z.array(z.coerce.string()).default([]),
   project: z.string().optional(),
   draft: z.boolean().default(false),
+  // article = pełny wpis z notatnika; note = krótka notatka (1 wykres, kilka zdań) do udostępnienia na LinkedIn
+  type: z.enum(['article', 'note']).default('article'),
   readTime: z.string().optional(),
 });
 
