@@ -1,17 +1,18 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Mail, MapPin, Github, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, CheckCircle } from 'lucide-react';
 import ContactForm from '@/features/contact/ContactForm';
 import { getSite } from '@/lib/content/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch about Earth observation, satellite data validation or geospatial data science.'
+  description: 'Contact Dawid Sajewski about Earth observation, satellite data validation or geospatial data science. English, French or Italian welcome.'
 };
 
 export default function ContactPage() {
   const { contact, links } = getSite();
   const infoItems = [
+    ...(links.linkedin ? [{ icon: Linkedin, label: 'LinkedIn', value: 'Dawid Sajewski', href: links.linkedin }] : []),
     { icon: Mail, label: 'Email', value: contact.email, href: `mailto:${contact.email}` },
     { icon: MapPin, label: 'Location', value: contact.location },
     ...(links.github ? [{ icon: Github, label: 'GitHub', value: links.github.replace(/^https:\/\//, ''), href: links.github }] : []),

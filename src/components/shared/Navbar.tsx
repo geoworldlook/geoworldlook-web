@@ -24,7 +24,8 @@ export default function Navbar({ name, navLinks }: { name: string; navLinks: Nav
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group transition-opacity hover:opacity-90">
-          <span className="text-emerald-400 mr-2 text-lg">●</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/geoworldlook.png" alt="" width={28} height={28} className="w-7 h-7 rounded-full mr-2" />
           <span className="font-semibold text-white tracking-tight">{name}</span>
         </Link>
 
@@ -58,7 +59,8 @@ export default function Navbar({ name, navLinks }: { name: string; navLinks: Nav
             </SheetTrigger>
             <SheetContent side="right" className="bg-[#0a0a0a] border-l border-white/[0.06] p-8">
               <SheetTitle className="text-white mb-8 flex items-center">
-                <span className="text-emerald-400 mr-2">●</span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/geoworldlook.png" alt="" width={28} height={28} className="w-7 h-7 rounded-full mr-2" />
                 {name}
               </SheetTitle>
               <div className="flex flex-col gap-6">

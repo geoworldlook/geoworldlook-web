@@ -3,14 +3,18 @@
 eyebrow: About
 title: Earth Observation & Geospatial Data Science
 intro: >-
-  I turn open satellite data into validated information: drought status for a vineyard,
-  ground motion checked against GNSS and levelling, and the pipelines that produce them.
+  I develop remote sensing methods and turn them into working Python pipelines: a vineyard
+  screened against its own history, ground motion checked against GNSS and levelling,
+  smog forecasts and radar water extent checked against ground stations.
   Based in Poland.
+
+# Portrait shown next to the intro. Path to a file in public/ (e.g. /about/dawid.jpg). Empty = hidden.
+photo: ""
 
 background:
   - >-
     My work starts from a question someone actually needs answered, for example
-    "is this field entering drought?" or "can this InSAR product be trusted for subsidence monitoring?".
+    "does this vineyard stand out from its own past seasons?" or "can this InSAR product be trusted for subsidence monitoring?".
     Then I build the pipeline and test it against independent ground measurements.
   - >-
     I fix acceptance criteria before computing results, I report every number with its error,
@@ -24,19 +28,35 @@ background:
 #   - { years: "2024 – present", role: "Remote Sensing Specialist", context: "Forest monitoring with Sentinel-2" }
 experience: []
 
+# Education. Newest first. The section is hidden while the list is empty.
+# Example:
+#   - { years: "2018 – 2023", degree: "MEng Geodesy and Cartography", school: "Gdańsk University of Technology" }
+education:
+  - { years: "2023 – 2024", degree: "Postgraduate Degree, Data Science in Python", school: "University of Warmia and Mazury in Olsztyn" }
+  - years: "2021 – 2022"
+    degree: "MEng, Geodesy and Cartography (Geomatics and Geoinformatics)"
+    school: "Gdańsk University of Technology · Thesis: deep learning for the classification of power line points in airborne LiDAR data"
+  - years: "2017 – 2021"
+    degree: "BEng, Geodesy and Cartography (Engineering Surveying)"
+    school: "Gdańsk University of Technology · Thesis: land-cover change in Greenland from multi-temporal classification of satellite imagery"
+
 skills:
-  - label: Satellite Data
-    tags: [Sentinel-1, Sentinel-2, ERA5-Land, EGMS, Landsat 8, Airborne LiDAR, Google Earth Engine]
+  - label: Satellite & Aerial Data
+    tags: [Sentinel-1, Sentinel-2, ERA5-Land, EGMS, Landsat 8, Aerial & multispectral imagery, LiDAR, DEM products]
   - label: Analysis & Validation
     tags: [Time-series anomalies, InSAR validation, In-situ match-ups, Bootstrap CIs, Brier score, Pre-registered criteria]
   - label: Engineering
-    tags: [Python, pandas, rasterio, GeoPandas, PostGIS, QGIS, ArcGIS Pro]
+    tags: [Python, NumPy, pandas, SciPy, GeoPandas, Rasterio, GDAL, SQL/PostgreSQL, STAC, Docker, GitHub Actions]
+  - label: Software
+    tags: [Google Earth Engine, QGIS with UMEP, ArcGIS Pro]
   - label: Machine Learning
-    tags: [scikit-learn, TensorFlow, PyTorch, Super-resolution (SEN2SR)]
+    tags: [scikit-learn, Random Forest, SVM, Object-based image analysis]
+  - label: Languages
+    tags: [Polish (native), English, French (learning), Italian (learning)]
   - label: Learning Now
-    tags: [STAC, xarray, Docker, GitHub Actions, U-Net]
+    tags: [xarray, Deep learning, U-Net]
 
 availability:
-  title: Open to conversations
-  text: About Earth observation, validation of satellite products and geospatial data science.
-  button: { label: Get in Touch, href: /contact }
+  title: Open to collaboration
+  text: Happy to talk about Earth observation, validation of satellite products and geospatial data science.
+  button: { label: Connect on LinkedIn, href: "https://www.linkedin.com/in/dawid-sajewski-12830b21b/" }

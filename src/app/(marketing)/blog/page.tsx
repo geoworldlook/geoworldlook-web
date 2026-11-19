@@ -8,7 +8,7 @@ import { getPosts } from '@/lib/content/blog';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Technical articles on remote sensing, satellite data pipelines, and high-performance spatial database optimization.'
+  description: 'Articles and short notes on Earth observation results, each checked against ground measurements.'
 };
 
 export default function BlogPage() {
@@ -19,12 +19,12 @@ export default function BlogPage() {
       <div className="text-center space-y-4 max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-2">
           <BookOpen size={14} />
-          Technical Insights
+          Articles &amp; Notes
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white">Geospatial Engineering Blog</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white">Results, Checked Against the Ground</h1>
         <p className="text-lg text-gray-400 leading-relaxed">
-          Technical articles and insights on remote sensing, satellite data pipelines, and spatial analysis.
-          Generated directly from Google Colab notebooks.
+          Full articles on how each result was checked, and short notes with one chart and the main finding.
+          Every post is a reproducible notebook.
         </p>
       </div>
 
@@ -50,6 +50,7 @@ export default function BlogPage() {
                     <span className="bg-emerald-400/10 text-emerald-400 px-2 py-1 rounded-md uppercase font-mono tracking-widest">
                       {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                     </span>
+                    <span className="text-gray-400 uppercase font-mono tracking-widest">{post.type === 'note' ? 'Note' : 'Article'}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                   </div>
                   
@@ -72,7 +73,7 @@ export default function BlogPage() {
 
                   <div className="pt-4">
                     <span className="inline-flex items-center gap-2 text-emerald-400 font-bold group-hover:gap-4 transition-all text-sm">
-                      Read Article <ArrowRight className="w-4 h-4" />
+                      {post.type === 'note' ? 'Read Note' : 'Read Article'} <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>

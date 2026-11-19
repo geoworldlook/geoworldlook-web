@@ -31,6 +31,8 @@ który podaje plik i pole. Strona na żywo się wtedy nie zmienia.
 
    Odznaka „Open in Colab” przed tą komórką jest dozwolona i nie pojawi się na stronie.
 3. Uruchom notatnik od góry do dołu i zapisz go **z wynikami**: na stronie pokazują się zapisane wykresy, tabele i tekst.
+   Krótka notatka (1 wykres, kilka zdań, do udostępnienia na LinkedIn): dodaj `type: note` i zacznij od
+   `blog/_template_note.ipynb`. Bez tego pola wpis jest pełnym artykułem (`type: article`).
 4. Zapisz plik jako `blog/<adres-wpisu>.ipynb`. Nazwa pliku to adres: `blog/egms-groningen.ipynb` → `/blog/egms-groningen`.
    Z Colaba: *Plik → Zapisz kopię w GitHub*, repozytorium `geoworldlook/geoworldlook-web`, ścieżka `content/blog/<adres-wpisu>.ipynb`.
 

@@ -19,7 +19,8 @@ export default function Footer() {
           {/* Column 1 - Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center">
-              <span className="text-emerald-400 mr-2 text-lg">●</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/geoworldlook.png" alt="" width={28} height={28} className="w-7 h-7 rounded-full mr-2" />
               <span className="font-semibold text-white tracking-tight">{site.name}</span>
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed">

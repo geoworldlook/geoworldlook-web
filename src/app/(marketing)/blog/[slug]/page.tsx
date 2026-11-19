@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, Clock, Calendar, ChevronRight, FolderGit2 } from 'lucide-react';
 import { getPost, getPosts } from '@/lib/content/blog';
 import { getProject } from '@/lib/content/projects';
+import { getSite } from '@/lib/content/site';
 import NotebookCells from '@/features/blog/NotebookCells';
 
 interface Props {
@@ -72,6 +73,16 @@ export default async function BlogPostPage({ params }: Props) {
       </header>
 
       <NotebookCells cells={post.cells} />
+
+      {getSite().links.linkedin && (
+        <aside className="mt-16 border-t border-white/[0.06] pt-8 text-sm text-gray-400">
+          Questions or a different result on your data?{' '}
+          <a href={getSite().links.linkedin} className="text-emerald-400 hover:text-emerald-300">
+            Discuss this with me on LinkedIn
+          </a>
+          .
+        </aside>
+      )}
     </article>
   );
 }
