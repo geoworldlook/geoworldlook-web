@@ -22,7 +22,8 @@ background:
 # Experience timeline. Newest first. The section is hidden while the list is empty.
 # Example:
 #   - { years: "2024 – present", role: "Remote Sensing Specialist", context: "Forest monitoring with Sentinel-2" }
-experience: []
+experience:
+  - { years: "2025 – present", role: "Remote Sensing Analyst", context: "Analysis of satellite remote sensing data" }
 
 skills:
   - label: Satellite Data
