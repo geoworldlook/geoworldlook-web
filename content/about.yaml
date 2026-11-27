@@ -22,7 +22,8 @@ background:
 # Experience timeline. Newest first. The section is hidden while the list is empty.
 # Example:
 #   - { years: "2024 – present", role: "Remote Sensing Specialist", context: "Forest monitoring with Sentinel-2" }
-experience: []
+experience:
+  - { years: "2025 – present", role: "Remote Sensing Analyst", context: "Analysis of satellite remote sensing data" }
 
 skills:
   - label: Satellite Data
@@ -30,11 +31,11 @@ skills:
   - label: Analysis & Validation
     tags: [Time-series anomalies, InSAR validation, In-situ match-ups, Bootstrap CIs, Brier score, Pre-registered criteria]
   - label: Engineering
-    tags: [Python, pandas, rasterio, GeoPandas, PostGIS, QGIS, ArcGIS Pro]
+    tags: [Python, pandas, rasterio, GeoPandas, PostGIS, QGIS, ArcGIS Pro, STAC, Docker, GitHub Actions]
   - label: Machine Learning
     tags: [scikit-learn, TensorFlow, PyTorch, Super-resolution (SEN2SR)]
   - label: Learning Now
-    tags: [STAC, xarray, Docker, GitHub Actions, U-Net]
+    tags: [xarray, U-Net]
 
 availability:
   title: Open to conversations

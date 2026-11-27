@@ -25,7 +25,7 @@ contact:
 
 links:
   github: https://github.com/geoworldlook
-  linkedin: ""   # empty = hidden
+  linkedin: https://www.linkedin.com/in/dawid-sajewski-12830b21b/   # empty = hidden
 
 nav:
   - { label: Analyses, href: /analyses }
