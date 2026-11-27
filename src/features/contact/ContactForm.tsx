@@ -29,7 +29,7 @@ type Status = 'idle' | 'sending' | 'success' | 'error'
 
 /**
  * Sends the message to Formspree (https://formspree.io), which forwards it to the site email.
- * The form ID comes from content/site.yaml; without it the form explains how to email directly.
+ * The form ID comes from content/site.yaml; without it the form opens the visitor's email app (mailto).
  */
 export default function ContactForm({ formspreeId, email }: { formspreeId: string; email: string }) {
   const [status, setStatus] = useState<Status>('idle')
@@ -54,8 +54,13 @@ export default function ContactForm({ formspreeId, email }: { formspreeId: strin
     setErrors({})
 
     if (!formspreeId) {
-      setStatus('error')
-      setMessage(`The form is not connected yet. Please email me directly at ${email}.`)
+      // No form service: open the visitor's email app with the message filled in
+      const d = result.data
+      const subject = `GeoWorldLook: ${d.topic} from ${d.name}`
+      const body = `${d.message}\n\n${d.name}${d.company ? `, ${d.company}` : ''}\n${d.email}`
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      setStatus('idle')
+      setMessage(`Your email app should open with the message ready to send. If it does not, write to ${email}.`)
       return
     }
 
@@ -172,6 +177,7 @@ export default function ContactForm({ formspreeId, email }: { formspreeId: strin
       {status === 'error' && (
         <p className="text-sm text-red-400 font-medium animate-in fade-in slide-in-from-top-1">{message}</p>
       )}
+      {status === 'idle' && message && <p className="text-sm text-gray-400">{message}</p>}
 
       <Button
         type="submit"
